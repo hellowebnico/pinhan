@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pinhan.edu.src.mapper.StandardMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.Standard">
+        <result column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="money_type" property="moneyType" />
+        <result column="total" property="total" />
+        <result column="classes" property="classes" />
+        <result column="day_cost" property="dayCost" />
+    </resultMap>
+
+</mapper>
