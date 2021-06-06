@@ -15,6 +15,6 @@ import com.pinhan.edu.src.pojo.User;
 public interface IUserService extends IService<User> {
  int login(String userName,String passWord);
  IPage<User> getPage(Integer currentPage);
- int resetPassWord(String userName,String passWord,String newPassWord);
+ int resetPassWord(String userName,String newPassWord);
 }
 

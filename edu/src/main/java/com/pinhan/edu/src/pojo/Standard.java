@@ -1,5 +1,6 @@
 package com.pinhan.edu.src.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,7 +19,7 @@ import java.io.Serializable;
 public class Standard implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    @TableId(value = "type")
     private String type;
 
     private String moneyType;
