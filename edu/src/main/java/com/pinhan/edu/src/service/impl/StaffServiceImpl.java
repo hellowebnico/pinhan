@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author liuyh
@@ -23,8 +23,8 @@ public class StaffServiceImpl extends ServiceImpl<StaffMapper, Staff> implements
     @Override
     public IPage<Staff> getPage(Integer currentPage) {
         QueryWrapper wrapper = new QueryWrapper();
-        Page<Staff> page = new Page(currentPage,10,true);
-        IPage<Staff> ipage = baseMapper.selectPage(page,wrapper);
+        Page<Staff> page = new Page(currentPage, 10, true);
+        IPage<Staff> ipage = baseMapper.selectPage(page, wrapper);
         return ipage;
     }
 }

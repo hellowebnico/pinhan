@@ -4,16 +4,16 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.Student">
-        <result column="studentId" property="studentid" />
-        <result column="name" property="name" />
-        <result column="sex" property="sex" />
-        <result column="grade" property="grade" />
-        <result column="school" property="school" />
-        <result column="parent_tel" property="parentTel" />
-        <result column="address" property="address" />
-        <result column="source" property="source" />
-        <result column="class_rank" property="classRank" />
-        <result column="grade_rank" property="gradeRank" />
+        <result column="studentId" property="studentid"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="grade" property="grade"/>
+        <result column="school" property="school"/>
+        <result column="parent_tel" property="parentTel"/>
+        <result column="address" property="address"/>
+        <result column="source" property="source"/>
+        <result column="class_rank" property="classRank"/>
+        <result column="grade_rank" property="gradeRank"/>
     </resultMap>
 
 </mapper>

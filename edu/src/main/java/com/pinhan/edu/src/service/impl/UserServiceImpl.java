@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author liuyh
@@ -25,12 +25,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     public int login(String workId, String passWord) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("work_id",workId);
-        wrapper.eq("password",passWord);
+        wrapper.eq("work_id", workId);
+        wrapper.eq("password", passWord);
         User user = baseMapper.selectOne(wrapper);
-        if(user != null && user.getPassword().equals(passWord) && user.getWorkId().equals(workId)){
+        if (user != null && user.getPassword().equals(passWord) && user.getWorkId().equals(workId)) {
             return user.getLevel();
-        }else{
+        } else {
             return -1;
         }
     }
@@ -40,10 +40,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      * 查询所有用户
      */
     public IPage<User> getPage(Integer currentPage) {
-        System.out.println("页码：" + currentPage);
         QueryWrapper wrapper = new QueryWrapper();
-        Page<User> page = new Page(currentPage,10,true);
-        IPage<User> ipage = baseMapper.selectPage(page,wrapper);
+        Page<User> page = new Page(currentPage, 10, true);
+        IPage<User> ipage = baseMapper.selectPage(page, wrapper);
         return ipage;
     }
 
@@ -51,13 +50,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     /**
      * 修改密码
      */
-    public int resetPassWord(String userName,String newPassWord) {
-     UpdateWrapper wrapper = new UpdateWrapper();
-     wrapper.eq("work_id",userName);
-      User user = new User();
-      user.setPassword(newPassWord);
-      int rows = baseMapper.update(user,wrapper);
-      return rows;
+    public int resetPassWord(String userName, String passWord, String newPassWord) {
+        UpdateWrapper wrapper = new UpdateWrapper();
+        wrapper.eq("work_id", userName);
+        wrapper.eq("password", passWord);
+        User user = new User();
+        user.setPassword(newPassWord);
+        int rows = baseMapper.update(user, wrapper);
+        return rows;
     }
 
 }

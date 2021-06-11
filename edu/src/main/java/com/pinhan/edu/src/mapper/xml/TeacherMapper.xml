@@ -4,14 +4,14 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.Teacher">
-        <id column="work_id" property="workId" />
-        <result column="name" property="name" />
-        <result column="sex" property="sex" />
-        <result column="education" property="education" />
-        <result column="tel" property="tel" />
-        <result column="address" property="address" />
-        <result column="course" property="course" />
-        <result column="exp" property="exp" />
+        <id column="work_id" property="workId"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="education" property="education"/>
+        <result column="tel" property="tel"/>
+        <result column="address" property="address"/>
+        <result column="course" property="course"/>
+        <result column="exp" property="exp"/>
     </resultMap>
 
 </mapper>

@@ -1,20 +1,32 @@
 package com.pinhan.edu.src.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.pinhan.edu.src.pojo.Stream;
+import com.pinhan.edu.src.service.IStreamService;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author liuyh
  * @since 2021-06-06
  */
 @RestController
-@RequestMapping("/src/stream")
+@RequestMapping("/stream")
 public class IStreamController {
+    @Resource
+    private IStreamService streamService;
+
+    @PostMapping("/add")
+    @ResponseBody
+    public int addStream(@RequestBody @Validated Stream stream) {
+        return streamService.addStream(stream);
+    }
 
 }
 

@@ -4,9 +4,9 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.User">
-        <id column="work_id" property="workId" />
-        <result column="password" property="password" />
-        <result column="level" property="level" />
+        <id column="work_id" property="workId"/>
+        <result column="password" property="password"/>
+        <result column="level" property="level"/>
     </resultMap>
 
 </mapper>

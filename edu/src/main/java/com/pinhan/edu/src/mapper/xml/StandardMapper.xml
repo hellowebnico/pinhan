@@ -4,12 +4,12 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.Standard">
-        <result column="id" property="id" />
-        <result column="type" property="type" />
-        <result column="money_type" property="moneyType" />
-        <result column="total" property="total" />
-        <result column="classes" property="classes" />
-        <result column="day_cost" property="dayCost" />
+        <result column="id" property="id"/>
+        <result column="type" property="type"/>
+        <result column="money_type" property="moneyType"/>
+        <result column="total" property="total"/>
+        <result column="classes" property="classes"/>
+        <result column="day_cost" property="dayCost"/>
     </resultMap>
 
 </mapper>

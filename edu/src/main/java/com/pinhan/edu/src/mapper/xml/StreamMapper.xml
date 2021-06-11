@@ -4,16 +4,16 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.Stream">
-        <result column="id" property="id" />
-        <result column="type" property="type" />
-        <result column="time" property="time" />
-        <result column="money_type" property="moneyType" />
-        <result column="name" property="name" />
-        <result column="grade" property="grade" />
-        <result column="course" property="course" />
-        <result column="total" property="total" />
-        <result column="adviser" property="adviser" />
-        <result column="remark" property="remark" />
+        <result column="id" property="id"/>
+        <result column="type" property="type"/>
+        <result column="time" property="time"/>
+        <result column="money_type" property="moneyType"/>
+        <result column="name" property="name"/>
+        <result column="grade" property="grade"/>
+        <result column="course" property="course"/>
+        <result column="total" property="total"/>
+        <result column="adviser" property="adviser"/>
+        <result column="remark" property="remark"/>
     </resultMap>
 
 </mapper>

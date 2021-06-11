@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author liuyh
@@ -17,4 +17,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class StreamServiceImpl extends ServiceImpl<StreamMapper, Stream> implements IStreamService {
 
+    @Override
+    public int addStream(Stream stream) {
+        return baseMapper.insert(Stream.builder()
+                .adviser(stream.getAdviser())
+                .course(stream.getCourse()
+                ).grade(stream.getGrade())
+                .moneyType(stream.getMoneyType())
+                .name(stream.getName())
+                .remark(stream.getRemark())
+                .time(stream.getTime())
+                .total(stream.getTotal())
+                .type(stream.getType())
+                .build()
+
+        );
+    }
 }

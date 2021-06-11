@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author liuyh
@@ -23,8 +23,8 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher> impl
     @Override
     public IPage<Teacher> getPage(Integer currentPage) {
         QueryWrapper wrapper = new QueryWrapper();
-        Page<Teacher> page = new Page(currentPage,10,true);
-        IPage<Teacher> ipage = baseMapper.selectPage(page,wrapper);
+        Page<Teacher> page = new Page(currentPage, 10, true);
+        IPage<Teacher> ipage = baseMapper.selectPage(page, wrapper);
         return ipage;
     }
 }

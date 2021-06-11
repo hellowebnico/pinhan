@@ -9,9 +9,10 @@ import com.pinhan.edu.src.pojo.Student;
 import com.pinhan.edu.src.service.IStudentService;
 import org.springframework.stereotype.Service;
 
+
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author liuyh
@@ -23,8 +24,24 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
     @Override
     public IPage<Student> getPage(Integer currentPage) {
         QueryWrapper wrapper = new QueryWrapper();
-        Page<Student> page = new Page(currentPage,10,true);
-        IPage<Student> ipage = baseMapper.selectPage(page,wrapper);
+        Page<Student> page = new Page(currentPage, 10, true);
+        IPage<Student> ipage = baseMapper.selectPage(page, wrapper);
         return ipage;
+    }
+
+    @Override
+    public int addStudent(Student student) {
+        return baseMapper.insert(Student.builder().
+                address(student.getAddress())
+                .classRank(student.getClassRank())
+                .grade(student.getGrade())
+                .gradeRank(student.getGradeRank())
+                .school(student.getSchool())
+                .name(student.getName())
+                .parentTel(student.getParentTel())
+                .source(student.getSource())
+                .sex(student.getSex())
+                .studentid(null)
+                .build());
     }
 }

@@ -6,7 +6,7 @@ import com.pinhan.edu.src.pojo.Staff;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author liuyh

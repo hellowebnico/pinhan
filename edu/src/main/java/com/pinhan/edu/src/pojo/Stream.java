@@ -1,7 +1,7 @@
 package com.pinhan.edu.src.pojo;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -15,6 +15,10 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+@Builder
+@Accessors(chain = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class Stream implements Serializable {
 
     private static final long serialVersionUID = 1L;

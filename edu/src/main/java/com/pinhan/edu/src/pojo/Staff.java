@@ -1,6 +1,5 @@
 package com.pinhan.edu.src.pojo;
 
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,8 +22,8 @@ import java.io.Serializable;
 public class Staff implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @TableId(value = "work_id")
-      private String workId;
+
+    private String workId;
 
     private String name;
 
