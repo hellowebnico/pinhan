@@ -4,7 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.Student">
-        <result column="studentId" property="studentid"/>
+        <result column="studentId" property="studentId"/>
         <result column="name" property="name"/>
         <result column="sex" property="sex"/>
         <result column="grade" property="grade"/>

@@ -40,6 +40,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      * 查询所有用户
      */
     public IPage<User> getPage(Integer currentPage) {
+        System.out.println("页码：" + currentPage);
         QueryWrapper wrapper = new QueryWrapper();
         Page<User> page = new Page(currentPage, 10, true);
         IPage<User> ipage = baseMapper.selectPage(page, wrapper);
@@ -50,14 +51,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     /**
      * 修改密码
      */
-    public int resetPassWord(String userName, String passWord, String newPassWord) {
+    public int resetPassWord(String userName, String newPassWord) {
         UpdateWrapper wrapper = new UpdateWrapper();
         wrapper.eq("work_id", userName);
-        wrapper.eq("password", passWord);
         User user = new User();
         user.setPassword(newPassWord);
         int rows = baseMapper.update(user, wrapper);
         return rows;
     }
-
 }

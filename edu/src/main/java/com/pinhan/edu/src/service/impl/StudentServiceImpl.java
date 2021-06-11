@@ -31,17 +31,17 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
 
     @Override
     public int addStudent(Student student) {
-        return baseMapper.insert(Student.builder().
-                address(student.getAddress())
-                .classRank(student.getClassRank())
-                .grade(student.getGrade())
-                .gradeRank(student.getGradeRank())
-                .school(student.getSchool())
-                .name(student.getName())
-                .parentTel(student.getParentTel())
-                .source(student.getSource())
-                .sex(student.getSex())
-                .studentid(null)
-                .build());
+        Student stu = new Student();
+        stu.setAddress(student.getAddress());
+        stu.setClassRank(student.getClassRank());
+        stu.setGrade(student.getGrade());
+        stu.setGradeRank(student.getGradeRank());
+        stu.setName(student.getName());
+        stu.setParentTel(student.getParentTel());
+        stu.setSchool(student.getSchool());
+        stu.setSex(student.getSex());
+        stu.setSource(student.getSource());
+        stu.setStudentId(student.getStudentId());
+        return baseMapper.insert(stu);
     }
 }

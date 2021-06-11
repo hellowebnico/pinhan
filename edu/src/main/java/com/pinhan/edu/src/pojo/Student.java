@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- *
+ * <p>
  * </p>
  *
  * @author liuyh
@@ -18,8 +18,6 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Accessors(chain = true)
 public class Student implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,7 +26,7 @@ public class Student implements Serializable {
      * 学号
      */
     @TableField("studentId")
-    private String studentid;
+    private String studentId;
 
     /**
      * 姓名
@@ -76,4 +74,87 @@ public class Student implements Serializable {
     private Integer gradeRank;
 
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentid) {
+        this.studentId = studentid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getParentTel() {
+        return parentTel;
+    }
+
+    public void setParentTel(String parentTel) {
+        this.parentTel = parentTel;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public Integer getClassRank() {
+        return classRank;
+    }
+
+    public void setClassRank(Integer classRank) {
+        this.classRank = classRank;
+    }
+
+    public Integer getGradeRank() {
+        return gradeRank;
+    }
+
+    public void setGradeRank(Integer gradeRank) {
+        this.gradeRank = gradeRank;
+    }
 }

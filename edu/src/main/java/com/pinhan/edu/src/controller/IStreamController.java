@@ -1,7 +1,9 @@
 package com.pinhan.edu.src.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.pinhan.edu.src.pojo.Stream;
+import com.pinhan.edu.src.pojo.User;
 import com.pinhan.edu.src.service.IStreamService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -28,5 +30,9 @@ public class IStreamController {
         return streamService.addStream(stream);
     }
 
+    @RequestMapping("/page")
+    public IPage<Stream> getPage(@RequestParam("page") Integer currentPage) {
+        return streamService.getPage(currentPage);
+    }
 }
 

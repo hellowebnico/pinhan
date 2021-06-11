@@ -31,17 +31,15 @@ public class IUserController {
         return userService.login(user.getWorkId(), user.getPassword());
     }
 
-    @PostMapping("/page")
-    @ResponseBody
-    public IPage<User> getPage(Integer currentPage) {
+    @RequestMapping("/page")
+    public IPage<User> getPage(@RequestParam("page") Integer currentPage) {
         return userService.getPage(currentPage);
     }
 
     @PostMapping("/reset")
     @ResponseBody
     public int resetPassWord(@Validated @RequestBody UserForPassWord user) {
-        return userService.resetPassWord(user.getWorkId(), user.getPassword(), user.getNewPassWord());
+        return userService.resetPassWord(user.getWorkId(), user.getNewPassWord());
     }
-
 }
 

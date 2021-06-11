@@ -2,6 +2,7 @@ package com.pinhan.edu.src.controller;
 
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.pinhan.edu.src.pojo.Staff;
 import com.pinhan.edu.src.pojo.Student;
 import com.pinhan.edu.src.service.IStudentService;
 import org.springframework.validation.annotation.Validated;
@@ -23,12 +24,10 @@ public class IStudentController {
     @Resource
     private IStudentService studentService;
 
-    @PostMapping("/page")
-    @ResponseBody
-    public IPage<Student> getPage(Integer currentPage) {
+    @RequestMapping("/page")
+    public IPage<Student> getPage(@RequestParam("page") Integer currentPage) {
         return studentService.getPage(currentPage);
     }
-
     @PostMapping("/add")
     @ResponseBody
     public int addStudent(@RequestBody @Validated Student student) {

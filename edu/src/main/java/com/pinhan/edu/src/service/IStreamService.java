@@ -1,6 +1,8 @@
 package com.pinhan.edu.src.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.pinhan.edu.src.pojo.Staff;
 import com.pinhan.edu.src.pojo.Stream;
 
 /**
@@ -19,4 +21,5 @@ public interface IStreamService extends IService<Stream> {
      * @return
      */
     int addStream(Stream stream);
+    IPage<Stream> getPage(Integer currentPage);
 }

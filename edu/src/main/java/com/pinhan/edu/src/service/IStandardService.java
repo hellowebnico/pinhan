@@ -1,5 +1,6 @@
 package com.pinhan.edu.src.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.pinhan.edu.src.pojo.Standard;
 
@@ -13,4 +14,5 @@ import com.pinhan.edu.src.pojo.Standard;
  */
 public interface IStandardService extends IService<Standard> {
 
+    IPage<Standard> getPage(Integer currentPage);
 }

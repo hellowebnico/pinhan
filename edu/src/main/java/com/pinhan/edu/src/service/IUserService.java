@@ -17,7 +17,6 @@ public interface IUserService extends IService<User> {
 
     IPage<User> getPage(Integer currentPage);
 
-    int resetPassWord(String userName, String passWord, String newPassWord);
-
+    int resetPassWord(String userName, String newPassWord);
 }
 

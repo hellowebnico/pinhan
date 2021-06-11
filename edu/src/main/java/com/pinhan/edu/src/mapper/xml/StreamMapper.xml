@@ -4,7 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.Stream">
-        <result column="id" property="id"/>
+        <result column="streamId" property="streamId"/>
         <result column="type" property="type"/>
         <result column="time" property="time"/>
         <result column="money_type" property="moneyType"/>
