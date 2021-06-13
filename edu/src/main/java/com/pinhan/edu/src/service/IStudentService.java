@@ -28,4 +28,13 @@ public interface IStudentService extends IService<Student> {
     /**
      * 删除用户
      */
+    int delStudent(String studentId);
+    /***
+     * 编辑用户
+     */
+    int updateStudent(Student student);
+    /**
+     * 模糊搜索查询
+     */
+    IPage<Student> getByNameLike(String studentName);
 }

@@ -25,8 +25,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
     public IPage<Student> getPage(Integer currentPage) {
         QueryWrapper wrapper = new QueryWrapper();
         Page<Student> page = new Page(currentPage, 10, true);
-        IPage<Student> ipage = baseMapper.selectPage(page, wrapper);
-        return ipage;
+        return baseMapper.selectPage(page, wrapper);
     }
 
     @Override
@@ -43,5 +42,25 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
         stu.setSource(student.getSource());
         stu.setStudentId(student.getStudentId());
         return baseMapper.insert(stu);
+    }
+
+    @Override
+    public int delStudent(String studentId) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("studentId",studentId);
+        return baseMapper.delete(queryWrapper);
+    }
+
+    @Override
+    public int updateStudent(Student student) {
+        return baseMapper.updateById(student);
+    }
+
+    @Override
+    public IPage<Student> getByNameLike(String studentName) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.like("name",studentName);
+        Page<Student> page = new Page(1, 10, true);
+        return baseMapper.selectPage(page, wrapper);
     }
 }

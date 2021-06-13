@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.*;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -26,6 +27,7 @@ public class Student implements Serializable {
      * 学号
      */
     @TableField("studentId")
+    @NotNull(message = "学号不能为空")
     private String studentId;
 
     /**
