@@ -1,5 +1,6 @@
 package com.pinhan.edu.src.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.Query;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -42,12 +43,16 @@ public class StaffServiceImpl extends ServiceImpl<StaffMapper, Staff> implements
 
     @Override
     public int updateStaff(Staff staff) {
-        return baseMapper.updateById(staff);
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("work_id",staff.getWorkId());
+        return baseMapper.update(staff,wrapper);
     }
 
     @Override
     public int delStaff(String workId) {
-        return baseMapper.deleteById(workId);
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("work_id",workId);
+        return baseMapper.delete(wrapper);
     }
 
     @Override

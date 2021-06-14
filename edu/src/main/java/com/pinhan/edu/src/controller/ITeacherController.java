@@ -35,13 +35,11 @@ public class ITeacherController {
     public IPage<Teacher> getPageByName(@RequestParam("name") @NotBlank String teacherName) {
         return teacherService.getPageByName(teacherName);
     }
-
     @PostMapping("/update")
     @ResponseBody
     public int updateTeacher(@Validated @RequestBody Teacher teacher) {
         return teacherService.updateTeacher(teacher);
     }
-
     @ResponseBody
     @RequestMapping("/del")
     public int delTeacher(@RequestParam("work_id") @NotBlank String workId) {
