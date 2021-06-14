@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pinhan.edu.src.mapper.GradeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.Grade">
+        <id column="studentId" property="studentid" />
+        <result column="name" property="name" />
+        <result column="chinese" property="chinese" />
+        <result column="math" property="math" />
+        <result column="english" property="english" />
+        <result column="physical" property="physical" />
+        <result column="chemistry" property="chemistry" />
+        <result column="history" property="history" />
+        <result column="geography" property="geography" />
+        <result column="biological" property="biological" />
+        <result column="daofa" property="daofa" />
+        <result column="computer" property="computer" />
+    </resultMap>
+
+</mapper>
