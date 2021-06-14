@@ -29,25 +29,29 @@ public class IStudentController {
     public IPage<Student> getPage(@RequestParam("page") Integer currentPage) {
         return studentService.getPage(currentPage);
     }
+
     @PostMapping("/add")
     @ResponseBody
     public int addStudent(@RequestBody @Validated Student student) {
         return studentService.addStudent(student);
     }
+
     @RequestMapping("/del")
     @ResponseBody
-    public int delStudent(@RequestParam @NotBlank String studentId){
+    public int delStudent(@RequestParam @NotBlank String studentId) {
         return studentService.delStudent(studentId);
     }
+
     @PostMapping("/update")
     @ResponseBody
-    public int updateStudent(@Validated @RequestBody Student student){
+    public int updateStudent(@Validated @RequestBody Student student) {
         return studentService.updateStudent(student);
     }
+
     @RequestMapping("/namePage")
     @ResponseBody
-    public IPage<Student> getPageByName(@RequestParam("studentName") String studentName){
-        return  studentService.getByNameLike(studentName);
+    public IPage<Student> getPageByName(@RequestParam("studentName") String studentName) {
+        return studentService.getByNameLike(studentName);
     }
 
 }

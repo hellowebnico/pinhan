@@ -47,7 +47,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
     @Override
     public int delStudent(String studentId) {
         QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("studentId",studentId);
+        queryWrapper.eq("studentId", studentId);
         return baseMapper.delete(queryWrapper);
     }
 
@@ -59,7 +59,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
     @Override
     public IPage<Student> getByNameLike(String studentName) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.like("name",studentName);
+        wrapper.like("name", studentName);
         Page<Student> page = new Page(1, 10, true);
         return baseMapper.selectPage(page, wrapper);
     }

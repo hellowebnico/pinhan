@@ -14,7 +14,7 @@ import com.pinhan.edu.src.pojo.Student;
  */
 public interface IStudentService extends IService<Student> {
     /**
-     * 分页查询用户
+     * 分页查询学生信息
      *
      * @param currentPage
      * @return
@@ -22,19 +22,22 @@ public interface IStudentService extends IService<Student> {
     IPage<Student> getPage(Integer currentPage);
 
     /**
-     * 添加用户
+     * 添加学生信息
      */
     int addStudent(Student student);
+
     /**
-     * 删除用户
+     * 删除学生信息
      */
     int delStudent(String studentId);
+
     /***
-     * 编辑用户
+     * 编辑学生信息
      */
     int updateStudent(Student student);
+
     /**
-     * 模糊搜索查询
+     * 模糊搜索查询学生信息
      */
     IPage<Student> getByNameLike(String studentName);
 }

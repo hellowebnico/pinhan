@@ -24,7 +24,38 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher> impl
     public IPage<Teacher> getPage(Integer currentPage) {
         QueryWrapper wrapper = new QueryWrapper();
         Page<Teacher> page = new Page(currentPage, 10, true);
-        IPage<Teacher> ipage = baseMapper.selectPage(page, wrapper);
-        return ipage;
+        return baseMapper.selectPage(page, wrapper);
+    }
+
+    @Override
+    public IPage<Teacher> getPageByName(String teacherName) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.like("name", teacherName);
+        Page<Teacher> page = new Page(1, 10, true);
+        return baseMapper.selectPage(page, wrapper);
+    }
+
+    @Override
+    public int delTeacher(String workId) {
+        return baseMapper.deleteById(workId);
+    }
+
+    @Override
+    public int updateTeacher(Teacher teacher) {
+        return baseMapper.updateById(teacher);
+    }
+
+    @Override
+    public int addTeacher(Teacher teacher) {
+        Teacher t = new Teacher();
+        t.setAddress(teacher.getAddress());
+        t.setCourse(teacher.getCourse());
+        t.setEducation(teacher.getEducation());
+        t.setExp(teacher.getExp());
+        t.setName(teacher.getName());
+        t.setSex(teacher.getSex());
+        t.setTel(teacher.getTel());
+        t.setWorkId(teacher.getWorkId());
+        return baseMapper.insert(t);
     }
 }

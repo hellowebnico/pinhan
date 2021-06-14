@@ -21,5 +21,11 @@ public interface IStreamService extends IService<Stream> {
      * @return
      */
     int addStream(Stream stream);
+
+    /**
+     * 查询流水信息
+     * @param currentPage
+     * @return
+     */
     IPage<Stream> getPage(Integer currentPage);
 }

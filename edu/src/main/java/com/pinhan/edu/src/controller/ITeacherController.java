@@ -6,6 +6,8 @@ import com.pinhan.edu.src.pojo.Student;
 import com.pinhan.edu.src.pojo.Teacher;
 import com.pinhan.edu.src.pojo.User;
 import com.pinhan.edu.src.service.ITeacherService;
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,5 +31,26 @@ public class ITeacherController {
         return teacherService.getPage(currentPage);
     }
 
+    @RequestMapping("/namePage")
+    public IPage<Teacher> getPageByName(@RequestParam("name") @NotBlank String teacherName) {
+        return teacherService.getPageByName(teacherName);
+    }
+
+    @PostMapping("/update")
+    @ResponseBody
+    public int updateTeacher(@Validated @RequestBody Teacher teacher) {
+        return teacherService.updateTeacher(teacher);
+    }
+
+    @ResponseBody
+    @RequestMapping("/del")
+    public int delTeacher(@RequestParam("work_id") @NotBlank String workId) {
+        return teacherService.delTeacher(workId);
+    }
+    @ResponseBody
+    @PostMapping("/add")
+    public int addTeacher(@Validated @RequestBody Teacher teacher){
+        return teacherService.addTeacher(teacher);
+    }
 }
 

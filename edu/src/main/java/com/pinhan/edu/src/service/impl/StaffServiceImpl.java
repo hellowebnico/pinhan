@@ -24,7 +24,37 @@ public class StaffServiceImpl extends ServiceImpl<StaffMapper, Staff> implements
     public IPage<Staff> getPage(Integer currentPage) {
         QueryWrapper wrapper = new QueryWrapper();
         Page<Staff> page = new Page(currentPage, 10, true);
-        IPage<Staff> ipage = baseMapper.selectPage(page, wrapper);
-        return ipage;
+        return baseMapper.selectPage(page, wrapper);
+    }
+
+    @Override
+    public int addStaff(Staff staff) {
+        Staff s = new Staff();
+        s.setAddress(staff.getAddress());
+        s.setDepartment(staff.getDepartment());
+        s.setLevel(staff.getLevel());
+        s.setName(staff.getName());
+        s.setSex(staff.getSex());
+        s.setTel(staff.getTel());
+        s.setWorkId(staff.getWorkId());
+        return baseMapper.insert(s);
+    }
+
+    @Override
+    public int updateStaff(Staff staff) {
+        return baseMapper.updateById(staff);
+    }
+
+    @Override
+    public int delStaff(String workId) {
+        return baseMapper.deleteById(workId);
+    }
+
+    @Override
+    public IPage<Staff> getPageByName(String Staffname) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.like("name",Staffname);
+        Page<Staff> page = new Page(1, 10, true);
+        return baseMapper.selectPage(page, wrapper);
     }
 }
