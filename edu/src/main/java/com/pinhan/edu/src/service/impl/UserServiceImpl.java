@@ -1,5 +1,6 @@
 package com.pinhan.edu.src.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -58,5 +59,29 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user.setPassword(newPassWord);
         int rows = baseMapper.update(user, wrapper);
         return rows;
+    }
+
+    @Override
+    public int addUser(User user) {
+        User u = new User();
+        u.setLevel(user.getLevel());
+        u.setPassword(user.getPassword());
+        u.setWorkId(user.getWorkId());
+        u.setName(user.getName());
+        return baseMapper.insert(u);
+    }
+
+    @Override
+    public int updateUser(User user) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("work_id",user.getWorkId());
+        return baseMapper.update(user,wrapper);
+    }
+
+    @Override
+    public int delUser(String workId) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("work_id",workId);
+        return baseMapper.delete(wrapper);
     }
 }

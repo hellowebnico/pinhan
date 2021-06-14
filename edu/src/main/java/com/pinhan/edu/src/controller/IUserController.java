@@ -41,5 +41,20 @@ public class IUserController {
     public int resetPassWord(@Validated @RequestBody UserForPassWord user) {
         return userService.resetPassWord(user.getWorkId(), user.getNewPassWord());
     }
+    @PostMapping("/add")
+    @ResponseBody
+    public int addUser(@Validated @RequestBody User user){
+        return userService.addUser(user);
+    }
+    @PostMapping("/update")
+    @ResponseBody
+    public int updateUser(@Validated @RequestBody User user){
+        return userService.updateUser(user);
+    }
+    @RequestMapping("/del")
+    @ResponseBody
+    public int delUser(@RequestParam("work_id") String workId){
+        return userService.delUser(workId);
+    }
 }
 

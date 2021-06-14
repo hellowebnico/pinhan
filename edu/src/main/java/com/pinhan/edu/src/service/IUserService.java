@@ -18,5 +18,17 @@ public interface IUserService extends IService<User> {
     IPage<User> getPage(Integer currentPage);
 
     int resetPassWord(String userName, String newPassWord);
+    /**
+     * 添加角色
+     */
+    int addUser(User user);
+    /**
+     * 修改角色信息
+     */
+    int updateUser(User user);
+    /**
+     * 删除角色信息
+     */
+    int delUser(String workId);
 }
 
