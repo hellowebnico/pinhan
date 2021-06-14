@@ -53,7 +53,9 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
 
     @Override
     public int updateStudent(Student student) {
-        return baseMapper.updateById(student);
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("studentId",student.getStudentId());
+        return baseMapper.update(student,wrapper);
     }
 
     @Override
