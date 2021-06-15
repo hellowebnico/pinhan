@@ -11,6 +11,11 @@
         <result column="level" property="level"/>
         <result column="tel" property="tel"/>
         <result column="address" property="address"/>
+        <result column="id_number" property="idNumber"/>
+        <result column="bank" property="bank"/>
+        <result column="bank_number" property="bankNumber"/>
+
+
     </resultMap>
 
 </mapper>

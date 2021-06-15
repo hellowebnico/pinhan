@@ -38,6 +38,9 @@ public class StaffServiceImpl extends ServiceImpl<StaffMapper, Staff> implements
         s.setSex(staff.getSex());
         s.setTel(staff.getTel());
         s.setWorkId(staff.getWorkId());
+        s.setIdNumber(staff.getIdNumber());
+        s.setBank(staff.getBank());
+        s.setBankNumber(staff.getBankNumber());
         return baseMapper.insert(s);
     }
 

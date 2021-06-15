@@ -90,6 +90,21 @@ public class Staff implements Serializable {
         return address;
     }
 
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    private String tel;
+
+    private String address;
+
+    private String idNumber;
+
+    private String bank;
+
+    private String bankNumber;
+
     public String getIdNumber() {
         return idNumber;
     }
@@ -113,20 +128,4 @@ public class Staff implements Serializable {
     public void setBankNumber(String bankNumber) {
         this.bankNumber = bankNumber;
     }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    private String tel;
-
-    private String address;
-
-    private String idNumber;
-
-    private String bank;
-
-    private String bankNumber;
-
-
 }
