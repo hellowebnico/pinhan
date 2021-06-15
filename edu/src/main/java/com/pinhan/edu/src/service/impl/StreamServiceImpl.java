@@ -9,6 +9,8 @@ import com.pinhan.edu.src.pojo.Stream;
 import com.pinhan.edu.src.service.IStreamService;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * <p>
  * 服务实现类
@@ -41,10 +43,25 @@ public class StreamServiceImpl extends ServiceImpl<StreamMapper, Stream> impleme
      * 查询流水
      */
     public IPage<Stream> getPage(Integer currentPage) {
-        System.out.println("页码：" + currentPage);
         QueryWrapper wrapper = new QueryWrapper();
         Page<Stream> page = new Page(currentPage, 10, true);
-        IPage<Stream> ipage = baseMapper.selectPage(page, wrapper);
-        return ipage;
+        return baseMapper.selectPage(page, wrapper);
+    }
+
+    @Override
+    public IPage<Stream> selectPage(String adviser,String course,String name, Date startTime,Date endTime){
+        QueryWrapper wrapper = new QueryWrapper();
+        if(adviser!= null && !adviser.equals("")){
+            wrapper.eq("adviser",adviser);
+        }
+        wrapper.between("time",startTime,endTime);
+        if(course!= null && !course.equals("")){
+            wrapper.eq("course",course);
+        }
+        if(name!= null && !name.equals("")){
+            wrapper.eq("name",name);
+        }
+        Page<Stream> page = new Page(1, 10, true);
+        return baseMapper.selectPage(page, wrapper);
     }
 }

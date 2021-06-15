@@ -165,4 +165,32 @@ public class Lesson implements Serializable {
     public void setClassTeacher(String classTeacher) {
         this.classTeacher = classTeacher;
     }
+
+    public String getTeacherEdu() {
+        return teacherEdu;
+    }
+
+    public void setTeacherEdu(String teacherEdu) {
+        this.teacherEdu = teacherEdu;
+    }
+
+    public int getStudentCheck() {
+        return studentCheck;
+    }
+
+    public void setStudentCheck(int studentCheck) {
+        this.studentCheck = studentCheck;
+    }
+
+    public int getTeacherCheck() {
+        return teacherCheck;
+    }
+
+    public void setTeacherCheck(int teacherCheck) {
+        this.teacherCheck = teacherCheck;
+    }
+
+    private String teacherEdu;
+    private int studentCheck;
+    private int teacherCheck;
 }

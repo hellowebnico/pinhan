@@ -15,6 +15,10 @@
         <result column="start" property="start" />
         <result column="end" property="end" />
         <result column="week" property="week" />
+        <result column="grade" property="grade" />
+        <result column="teacherEdu" property="teacherEdu" />
+        <result column="studentCheck" property="studentCheck" />
+        <result column="teacherCheck" property="teacherCheck" />
     </resultMap>
 
 </mapper>

@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.pinhan.edu.src.pojo.Staff;
 import com.pinhan.edu.src.pojo.Stream;
 
+import java.util.Date;
+
 /**
  * <p>
  * 服务类
@@ -33,5 +35,5 @@ public interface IStreamService extends IService<Stream> {
     /**
      * 根据条件查询流水信息
      */
-    IPage<Stream> selectPage();
+    IPage<Stream> selectPage(String adviser,String course,String name, Date startTime,Date endTime);
 }

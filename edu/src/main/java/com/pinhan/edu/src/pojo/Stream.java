@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -26,7 +27,7 @@ public class Stream implements Serializable {
     @TableId(value = "streamId")
     private String streamId;
 
-    private String time;
+    private Date time;
 
     private String moneyType;
 
@@ -63,13 +64,6 @@ public class Stream implements Serializable {
         this.streamId = streamId;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
 
     public String getMoneyType() {
         return moneyType;
@@ -77,6 +71,14 @@ public class Stream implements Serializable {
 
     public void setMoneyType(String moneyType) {
         this.moneyType = moneyType;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 
     public String getName() {
