@@ -23,6 +23,7 @@ public class Grade implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+<<<<<<< Updated upstream
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -125,6 +126,10 @@ public class Grade implements Serializable {
 
     @TableId("studentId")
       @NotBlank(message = "学号不能为空")
+=======
+    @TableId("studentId")
+    @NotBlank(message = "学号不能为空")
+>>>>>>> Stashed changes
     private String studentId;
     @NotBlank(message = "姓名不能为空")
     private String name;

@@ -38,15 +38,15 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher> impl
     @Override
     public int delTeacher(String workId) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("work_id",workId);
+        wrapper.eq("work_id", workId);
         return baseMapper.delete(wrapper);
     }
 
     @Override
     public int updateTeacher(Teacher teacher) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("work_id",teacher.getWorkId());
-        return baseMapper.update(teacher,wrapper);
+        wrapper.eq("work_id", teacher.getWorkId());
+        return baseMapper.update(teacher, wrapper);
     }
 
     @Override

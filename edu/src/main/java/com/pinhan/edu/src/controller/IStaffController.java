@@ -30,23 +30,27 @@ public class IStaffController {
     public IPage<Staff> getPage(@RequestParam("page") Integer currentPage) {
         return iStaffService.getPage(currentPage);
     }
+
     @RequestMapping("/del")
-    public int delStaff(@RequestParam("work_id") String workId){
+    public int delStaff(@RequestParam("work_id") String workId) {
         return iStaffService.delStaff(workId);
     }
+
     @PostMapping("/add")
     @ResponseBody
-    public int addStaff(@Validated @RequestBody Staff staff){
+    public int addStaff(@Validated @RequestBody Staff staff) {
         return iStaffService.addStaff(staff);
     }
+
     @PostMapping("/update")
     @ResponseBody
-    public int updateStaff(@Validated @RequestBody Staff staff){
+    public int updateStaff(@Validated @RequestBody Staff staff) {
         return iStaffService.updateStaff(staff);
     }
+
     @RequestMapping("/pageName")
     @ResponseBody
-    public IPage<Staff> getPageByName(@RequestParam("name") String staffName){
+    public IPage<Staff> getPageByName(@RequestParam("name") String staffName) {
         return iStaffService.getPageByName(staffName);
     }
 }

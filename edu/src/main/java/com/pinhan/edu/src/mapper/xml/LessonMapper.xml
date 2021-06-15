@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pinhan.edu.src.mapper.LessonMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.Lesson">
+        <id column="projectId" property="projectid" />
+        <result column="teacherName" property="teachername" />
+        <result column="workId" property="workid" />
+        <result column="courseType" property="coursetype" />
+        <result column="courseName" property="coursename" />
+        <result column="date" property="date" />
+        <result column="studentName" property="studentname" />
+        <result column="lesson" property="lesson" />
+        <result column="start" property="start" />
+        <result column="end" property="end" />
+        <result column="week" property="week" />
+    </resultMap>
+
+</mapper>

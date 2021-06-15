@@ -24,8 +24,14 @@ public interface IStreamService extends IService<Stream> {
 
     /**
      * 查询流水信息
+     *
      * @param currentPage
      * @return
      */
     IPage<Stream> getPage(Integer currentPage);
+
+    /**
+     * 根据条件查询流水信息
+     */
+    IPage<Stream> selectPage();
 }

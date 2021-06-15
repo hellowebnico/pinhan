@@ -35,6 +35,7 @@ public interface ITeacherService extends IService<Teacher> {
      * 修改教师信息
      */
     int updateTeacher(Teacher teacher);
+
     /**
      * 添加教师信息
      */
