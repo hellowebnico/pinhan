@@ -34,8 +34,14 @@ public class ILessonController {
     }
     @PostMapping("/update")
     @ResponseBody
-    public Lesson updateLesson(@Validated @RequestBody Lesson lesson){
-        return null;
+    public int updateLesson(@Validated @RequestBody Lesson lesson){
+
+        return iLessonService.updateLesson(lesson);
+    }
+    @PostMapping("/check")
+    @ResponseBody
+    public int lessonCheck(@Validated @RequestBody Lesson lesson){
+        return iLessonService.lessonCheck(lesson);
     }
 }
 

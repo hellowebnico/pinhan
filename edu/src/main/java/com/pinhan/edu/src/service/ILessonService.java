@@ -1,8 +1,11 @@
 package com.pinhan.edu.src.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.pinhan.edu.src.pojo.Lesson;
+import com.pinhan.edu.src.pojo.Staff;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,4 +29,15 @@ public interface ILessonService extends IService<Lesson> {
      * 修改课表时间
      */
     int updateLesson(Lesson lesson);
+    /**
+     * 分页查询员工信息
+     *
+     * @param currentPage
+     * @return
+     */
+    IPage<Lesson> getPage(Integer currentPage, Lesson lesson, Date startTime,Date endTime);
+    /**
+     * 考勤功能
+     */
+    int lessonCheck(Lesson lesson);
 }
