@@ -90,6 +90,30 @@ public class Staff implements Serializable {
         return address;
     }
 
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public String getBank() {
+        return bank;
+    }
+
+    public void setBank(String bank) {
+        this.bank = bank;
+    }
+
+    public String getBankNumber() {
+        return bankNumber;
+    }
+
+    public void setBankNumber(String bankNumber) {
+        this.bankNumber = bankNumber;
+    }
+
     public void setAddress(String address) {
         this.address = address;
     }
@@ -97,6 +121,12 @@ public class Staff implements Serializable {
     private String tel;
 
     private String address;
+
+    private String idNumber;
+
+    private String bank;
+
+    private String bankNumber;
 
 
 }
