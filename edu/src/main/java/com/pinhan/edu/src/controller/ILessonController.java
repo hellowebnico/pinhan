@@ -59,7 +59,6 @@ public class ILessonController {
         l7.setWeek("7");
         String[] times = time.split(",");
         String[] t1 = times[0].split("-");
-        System.out.println(t1);
         String d1 = t1[1] + "月" + t1[2] + "日";
         l1.setDate(d1);
         String[] t2 = times[1].split("-");
@@ -93,7 +92,6 @@ public class ILessonController {
                 String s = sdf.format(data.getDate());
                 String [] ss = s.split("-");
                 String str = ss[1] + "月" + ss[2] + "日";
-                    System.out.println(str);
                 if(str.equals(d1)){
                     list1.add(data);
                 }else if(str.equals(d2)){
