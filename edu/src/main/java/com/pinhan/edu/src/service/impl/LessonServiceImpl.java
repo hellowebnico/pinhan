@@ -1,6 +1,6 @@
 package com.pinhan.edu.src.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.Query;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -25,6 +25,7 @@ import java.util.List;
  */
 @Service
 public class LessonServiceImpl extends ServiceImpl<LessonMapper, Lesson> implements ILessonService {
+
     @Override
     public int addLesson(Lesson lesson) {
         String name = lesson.getStudentName();
@@ -124,4 +125,29 @@ public class LessonServiceImpl extends ServiceImpl<LessonMapper, Lesson> impleme
         wrapper.eq("projectId",projectId);
         return baseMapper.delete(wrapper);
     }
+
+    @Override
+    public IPage<Lesson> selectPage(Integer currentPage, Date startTime, Date endTime, String teacherName, String studentName, String grade, String courseType, String courseName)
+    {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.between("date",startTime,endTime);
+        if(studentName!= null && !studentName.equals("")){
+            wrapper.eq("studentName",studentName);
+        }
+        if(teacherName!= null && !teacherName.equals("")){
+            wrapper.eq("teacherName",teacherName);
+        }
+        if(grade!= null && !grade.equals("")){
+            wrapper.eq("grade",grade);
+    }
+        if(courseType!= null && !courseType.equals("")){
+            wrapper.eq("courseType",courseType);
+        }
+        if(courseName!= null && !courseName.equals("")){
+            wrapper.eq("courseName",courseName);
+        }
+        Page<Lesson> page = new Page(currentPage, 10, true);
+        return baseMapper.selectPage(page, wrapper);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.pinhan.edu.src.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.pinhan.edu.src.domain.Lessons;
 import com.pinhan.edu.src.pojo.Lesson;
 import com.pinhan.edu.src.service.ILessonService;
@@ -30,18 +31,20 @@ public class ILessonController {
     private ILessonService iLessonService;
     @Resource
     private DateFormat dateFormat;
+
     @PostMapping("/add")
     @ResponseBody
-    public int addLesson(@Validated @RequestBody Lesson lesson){
+    public int addLesson(@Validated @RequestBody Lesson lesson) {
         return iLessonService.addLesson(lesson);
     }
+
     @RequestMapping("/select")
     @ResponseBody
     public List<Lessons> selectLesson(@RequestParam("time") String time,
-                                     @RequestParam("teacherName") String teacherName, @RequestParam("grade") String grade,
-                                     @RequestParam("course") String course, @RequestParam("subject") String subject,
-    @RequestParam("studentName") String studentName){
-        List<Lesson> lesson = iLessonService.getLession(time,teacherName,grade,course,subject,studentName);
+                                      @RequestParam("teacherName") String teacherName, @RequestParam("grade") String grade,
+                                      @RequestParam("course") String course, @RequestParam("subject") String subject,
+                                      @RequestParam("studentName") String studentName) {
+        List<Lesson> lesson = iLessonService.getLession(time, teacherName, grade, course, subject, studentName);
         List<Lessons> list = new ArrayList<>();
         Lessons l1 = new Lessons();
         Lessons l2 = new Lessons();
@@ -86,27 +89,27 @@ public class ILessonController {
         List<Lesson> list5 = new ArrayList<>();
         List<Lesson> list6 = new ArrayList<>();
         List<Lesson> list7 = new ArrayList<>();
-        lesson.stream().forEach(data->
-                {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                String s = sdf.format(data.getDate());
-                String [] ss = s.split("-");
-                String str = ss[1] + "月" + ss[2] + "日";
-                if(str.equals(d1)){
-                    list1.add(data);
-                }else if(str.equals(d2)){
-                    list2.add(data);
-                }else if(str.equals(d3)){
-                    list3.add(data);
-                }else if(str.equals(d4)){
-                    list4.add(data);
-                }else if(str.equals(d5)){
-                    list5.add(data);
-                }else if(str.equals(d6)){
-                    list6.add(data);
-                }else if(str.equals(d7)){
-                    list7.add(data);
-                }
+        lesson.stream().forEach(data ->
+        {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String s = sdf.format(data.getDate());
+            String[] ss = s.split("-");
+            String str = ss[1] + "月" + ss[2] + "日";
+            if (str.equals(d1)) {
+                list1.add(data);
+            } else if (str.equals(d2)) {
+                list2.add(data);
+            } else if (str.equals(d3)) {
+                list3.add(data);
+            } else if (str.equals(d4)) {
+                list4.add(data);
+            } else if (str.equals(d5)) {
+                list5.add(data);
+            } else if (str.equals(d6)) {
+                list6.add(data);
+            } else if (str.equals(d7)) {
+                list7.add(data);
+            }
 
         });
         l1.setCourses(list1);
@@ -125,15 +128,30 @@ public class ILessonController {
         list.add(l7);
         return list;
     }
+
     @PostMapping("/update")
     @ResponseBody
-    public int updateLesson(@Validated @RequestBody Lesson lesson){
+    public int updateLesson(@Validated @RequestBody Lesson lesson) {
         return iLessonService.updateLesson(lesson);
     }
+
     @RequestMapping("/del")
     @ResponseBody
-    public int delLesson(@RequestParam("projectId")String projectId){
+    public int delLesson(@RequestParam("projectId") String projectId) {
         return iLessonService.delLesson(projectId);
     }
-}
+        @RequestMapping("/page")
+        @ResponseBody
+        public IPage<Lesson> selectPage ( @RequestParam("currentPage") int currentPage,
+        @RequestParam("endTime") String endTime,
+        @RequestParam("startTime") String startTime,
+        @RequestParam("teacherName") String teacherName, @RequestParam("grade") String grade,
+        @RequestParam("courseType") String courseType, @RequestParam("courseName") String courseName,
+        @RequestParam("studentName") String studentName){
+            Date start = dateFormat.format(startTime);
+            Date end = dateFormat.format(endTime);
+            return iLessonService.selectPage(currentPage, start, end, teacherName, studentName, grade, courseType, courseName);
+        }
+    }
+
 

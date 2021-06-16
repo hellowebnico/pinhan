@@ -44,4 +44,6 @@ public interface ILessonService extends IService<Lesson> {
      * 删除课程
      */
     int delLesson(String projectId);
+    IPage<Lesson> selectPage(Integer currentPage,Date startTime,Date endTime
+    ,String teacherName,String studentName,String grade,String courseType,String courseName);
 }
