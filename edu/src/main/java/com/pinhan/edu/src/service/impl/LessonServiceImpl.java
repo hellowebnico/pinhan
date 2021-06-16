@@ -1,9 +1,11 @@
 package com.pinhan.edu.src.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.Query;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.pinhan.edu.src.config.RandomId;
 import com.pinhan.edu.src.mapper.LessonMapper;
 import com.pinhan.edu.src.pojo.Lesson;
 import com.pinhan.edu.src.service.ILessonService;
@@ -23,7 +25,6 @@ import java.util.List;
  */
 @Service
 public class LessonServiceImpl extends ServiceImpl<LessonMapper, Lesson> implements ILessonService {
-
     @Override
     public int addLesson(Lesson lesson) {
         String name = lesson.getStudentName();
@@ -38,13 +39,14 @@ public class LessonServiceImpl extends ServiceImpl<LessonMapper, Lesson> impleme
             l.setEnd(lesson.getEnd());
             l.setGrade(lesson.getGrade());
             l.setClassTeacher(lesson.getClassTeacher());
-            l.setProjectid(lesson.getProjectid());
+            l.setProjectid(RandomId.generatorId());
             l.setDuration(lesson.getDuration());
             l.setStudentName(s);
             l.setTeacherName(lesson.getTeacherName());
             l.setWorkId(lesson.getWorkId());
             l.setStudentCheck(0);
             l.setTeacherCheck(0);
+            baseMapper.insert(l);
         }
 
         return names.length;
@@ -114,5 +116,12 @@ public class LessonServiceImpl extends ServiceImpl<LessonMapper, Lesson> impleme
         wrapper.eq("teacherName",lesson.getCourseName());
         wrapper.eq("date",lesson.getDate());
         return baseMapper.update(lesson,wrapper);
+    }
+
+    @Override
+    public int delLesson(String projectId) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("projectId",projectId);
+        return baseMapper.delete(wrapper);
     }
 }

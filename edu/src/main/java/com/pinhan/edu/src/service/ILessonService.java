@@ -40,4 +40,8 @@ public interface ILessonService extends IService<Lesson> {
      * 考勤功能
      */
     int lessonCheck(Lesson lesson);
+    /**
+     * 删除课程
+     */
+    int delLesson(String projectId);
 }

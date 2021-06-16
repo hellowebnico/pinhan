@@ -130,5 +130,10 @@ public class ILessonController {
     public int updateLesson(@Validated @RequestBody Lesson lesson){
         return iLessonService.updateLesson(lesson);
     }
+    @RequestMapping("/del")
+    @ResponseBody
+    public int delLesson(@RequestParam("projectId")String projectId){
+        return iLessonService.delLesson(projectId);
+    }
 }
 
