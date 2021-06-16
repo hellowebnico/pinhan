@@ -4,21 +4,23 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.pinhan.edu.src.pojo.Lesson">
-        <id column="projectId" property="projectid" />
-        <result column="teacherName" property="teachername" />
-        <result column="workId" property="workid" />
-        <result column="courseType" property="coursetype" />
-        <result column="courseName" property="coursename" />
+        <id column="projectId" property="projectId" />
+        <result column="teacherName" property="teacherName" />
+        <result column="workId" property="workId" />
+        <result column="courseType" property="courseType" />
+        <result column="courseName" property="courseName" />
         <result column="date" property="date" />
-        <result column="studentName" property="studentname" />
-        <result column="lesson" property="lesson" />
+        <result column="studentName" property="studentName" />
         <result column="start" property="start" />
         <result column="end" property="end" />
         <result column="week" property="week" />
         <result column="grade" property="grade" />
-        <result column="teacherEdu" property="teacherEdu" />
-        <result column="studentCheck" property="studentCheck" />
-        <result column="teacherCheck" property="teacherCheck" />
+        <result column="teacher_edu" property="teacherEdu" />
+        <result column="student_check" property="studentCheck" />
+        <result column="class_teacher" property="classTeacher" />
+        <result column="teacher_check" property="teacherCheck" />
+        <result column="duration" property="duration" />
+
     </resultMap>
 
 </mapper>

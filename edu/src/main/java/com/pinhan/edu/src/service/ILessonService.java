@@ -3,6 +3,7 @@ package com.pinhan.edu.src.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.pinhan.edu.src.pojo.Lesson;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public interface ILessonService extends IService<Lesson> {
     /**
      * 查询课程
      */
-    List<Lesson> getLession(Lesson lesson);
+    List<Lesson> getLession(String time,String teacherName,String grade,String course,String subject,String studentName);
     /**
      * 修改课表时间
      */

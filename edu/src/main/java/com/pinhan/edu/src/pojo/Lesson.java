@@ -2,14 +2,17 @@ package com.pinhan.edu.src.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.context.support.MessageSourceSupport;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * <p>
@@ -25,28 +28,27 @@ public class Lesson implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-      @TableId("projectId")
-      @NotBlank(message = "课程ID不能为空")
-    private String projectid;
+    @TableId("projectId")
+    private String projectId;
 
     @TableField("teacherName")
-    private String teachername;
+    private String teacherName;
 
     @TableField("workId")
-    private String workid;
+    private String workId;
 
     @TableField("courseType")
-    private String coursetype;
+    private String courseType;
 
     @TableField("courseName")
-    private String coursename;
+    private String courseName;
     @NotNull(message = "日期不能为空")
-    private LocalDate date;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date date;
 
     @TableField("studentName")
-    private String studentname;
-
-    private Integer lesson;
+    private String studentName;
 
     private String start;
 
@@ -59,68 +61,61 @@ public class Lesson implements Serializable {
     }
 
     public String getProjectid() {
-        return projectid;
+        return projectId;
     }
 
     public void setProjectid(String projectid) {
-        this.projectid = projectid;
+        this.projectId = projectid;
     }
 
-    public String getTeachername() {
-        return teachername;
+    public String getTeacherName() {
+        return teacherName;
     }
 
-    public void setTeachername(String teachername) {
-        this.teachername = teachername;
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 
-    public String getWorkid() {
-        return workid;
+    public String getWorkId() {
+        return workId;
     }
 
-    public void setWorkid(String workid) {
-        this.workid = workid;
+    public void setWorkId(String workId) {
+        this.workId = workId;
     }
 
-    public String getCoursetype() {
-        return coursetype;
+    public String getCourseType() {
+        return courseType;
     }
 
-    public void setCoursetype(String coursetype) {
-        this.coursetype = coursetype;
+    public void setCourseType(String courseType) {
+        this.courseType = courseType;
     }
 
-    public String getCoursename() {
-        return coursename;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setCoursename(String coursename) {
-        this.coursename = coursename;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getStudentname() {
-        return studentname;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setStudentname(String studentname) {
-        this.studentname = studentname;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
-    public Integer getLesson() {
-        return lesson;
-    }
-
-    public void setLesson(Integer lesson) {
-        this.lesson = lesson;
-    }
 
     public String getStart() {
         return start;
@@ -155,7 +150,6 @@ public class Lesson implements Serializable {
     }
 
     private String grade;
-
     private String classTeacher;
 
     public String getClassTeacher() {
@@ -193,4 +187,21 @@ public class Lesson implements Serializable {
     private String teacherEdu;
     private int studentCheck;
     private int teacherCheck;
+    private int duration;
+
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
 }

@@ -64,4 +64,6 @@ public class StreamServiceImpl extends ServiceImpl<StreamMapper, Stream> impleme
         Page<Stream> page = new Page(1, 10, true);
         return baseMapper.selectPage(page, wrapper);
     }
+
+
 }

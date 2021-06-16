@@ -3,10 +3,12 @@ package com.pinhan.edu.src.controller;
 
 import com.pinhan.edu.src.pojo.Lesson;
 import com.pinhan.edu.src.service.ILessonService;
+import com.pinhan.edu.src.util.DateFormat;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,20 +24,25 @@ import java.util.List;
 public class ILessonController {
     @Resource
     private ILessonService iLessonService;
+    @Resource
+    private DateFormat dateFormat;
     @PostMapping("/add")
     @ResponseBody
     public int addLesson(@Validated @RequestBody Lesson lesson){
         return iLessonService.addLesson(lesson);
     }
-    @PostMapping("/select")
+    @RequestMapping("/select")
     @ResponseBody
-    public List<Lesson> selectLesson(@Validated @RequestBody Lesson lesson){
-       return iLessonService.getLession(lesson);
+    public List<Lesson> selectLesson(@RequestParam("time") String time,
+                                     @RequestParam("teacherName") String teacherName, @RequestParam("grade") String grade,
+                                     @RequestParam("course") String course, @RequestParam("subject") String subject,
+    @RequestParam("studentName") String studentName){
+       return iLessonService.getLession(time,teacherName,grade,course,subject,studentName);
     }
     @PostMapping("/update")
     @ResponseBody
-    public Lesson updateLesson(@Validated @RequestBody Lesson lesson){
-        return null;
+    public int updateLesson(@Validated @RequestBody Lesson lesson){
+        return iLessonService.updateLesson(lesson);
     }
 }
 

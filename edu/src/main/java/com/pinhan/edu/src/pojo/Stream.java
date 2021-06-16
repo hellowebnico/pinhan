@@ -1,6 +1,7 @@
 package com.pinhan.edu.src.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -26,7 +27,7 @@ public class Stream implements Serializable {
     private String type;
     @TableId(value = "streamId")
     private String streamId;
-
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date time;
 
     private String moneyType;
