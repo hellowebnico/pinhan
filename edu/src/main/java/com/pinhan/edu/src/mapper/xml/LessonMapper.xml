@@ -14,10 +14,9 @@
         <result column="start" property="start" />
         <result column="end" property="end" />
         <result column="week" property="week" />
-        <result column="grade" property="grade" />
         <result column="teacher_edu" property="teacherEdu" />
         <result column="student_check" property="studentCheck" />
-        <result column="class_teacher" property="classTeacher" />
+        <result column="classTeacher" property="classTeacher" />
         <result column="teacher_check" property="teacherCheck" />
         <result column="duration" property="duration" />
 

@@ -150,6 +150,7 @@ public class Lesson implements Serializable {
     }
 
     private String grade;
+    @TableField(value = "classTeacher")
     private String classTeacher;
 
     public String getClassTeacher() {
@@ -158,14 +159,6 @@ public class Lesson implements Serializable {
 
     public void setClassTeacher(String classTeacher) {
         this.classTeacher = classTeacher;
-    }
-
-    public String getTeacherEdu() {
-        return teacherEdu;
-    }
-
-    public void setTeacherEdu(String teacherEdu) {
-        this.teacherEdu = teacherEdu;
     }
 
     public int getStudentCheck() {
@@ -184,7 +177,6 @@ public class Lesson implements Serializable {
         this.teacherCheck = teacherCheck;
     }
 
-    private String teacherEdu;
     private int studentCheck;
     private int teacherCheck;
     private int duration;

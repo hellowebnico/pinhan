@@ -1,13 +1,12 @@
 package com.pinhan.edu.src.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.Query;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.pinhan.edu.src.mapper.LessonMapper;
 import com.pinhan.edu.src.pojo.Lesson;
-import com.pinhan.edu.src.pojo.Staff;
 import com.pinhan.edu.src.service.ILessonService;
 import com.pinhan.edu.src.util.DateFormat;
 import org.springframework.stereotype.Service;
@@ -35,11 +34,15 @@ public class LessonServiceImpl extends ServiceImpl<LessonMapper, Lesson> impleme
         l.setCourseType(lesson.getCourseType());
         l.setStart(lesson.getStart());
         l.setEnd(lesson.getEnd());
+        l.setGrade(lesson.getGrade());
+        l.setClassTeacher(lesson.getClassTeacher());
         l.setProjectid(lesson.getProjectid());
         l.setDuration(lesson.getDuration());
         l.setStudentName(lesson.getStudentName());
         l.setTeacherName(lesson.getTeacherName());
         l.setWorkId(lesson.getWorkId());
+        l.setStudentCheck(0);
+        l.setTeacherCheck(0);
         return baseMapper.insert(l);
     }
 
@@ -81,20 +84,20 @@ public class LessonServiceImpl extends ServiceImpl<LessonMapper, Lesson> impleme
     public IPage<Lesson> getPage(Integer currentPage, Lesson lesson, Date startTime, Date endTime) {
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.between("date",startTime,endTime);
-        if(lesson.getStudentname()!= null && !lesson.getStudentname().equals("")){
-            wrapper.eq("studentName",lesson.getStudentname());
+        if(lesson.getStudentName()!= null && !lesson.getStudentName().equals("")){
+            wrapper.eq("studentName",lesson.getStudentName());
         }
-        if(lesson.getTeachername()!= null && !lesson.getTeachername().equals("")){
-            wrapper.eq("teacherName",lesson.getTeachername());
+        if(lesson.getTeacherName()!= null && !lesson.getTeacherName().equals("")){
+            wrapper.eq("teacherName",lesson.getTeacherName());
         }
         if(lesson.getGrade()!= null && !lesson.getGrade().equals("")){
             wrapper.eq("grade",lesson.getGrade());
         }
-        if(lesson.getCoursetype()!= null && !lesson.getCoursetype().equals("")){
-            wrapper.eq("courseType",lesson.getCoursetype());
+        if(lesson.getCourseType()!= null && !lesson.getCourseType().equals("")){
+            wrapper.eq("courseType",lesson.getCourseType());
         }
-        if(lesson.getCoursename()!= null && !lesson.getCoursename().equals("")){
-            wrapper.eq("courseName",lesson.getCoursename());
+        if(lesson.getCourseName()!= null && !lesson.getCourseName().equals("")){
+            wrapper.eq("courseName",lesson.getCourseName());
         }
         Page<Lesson> page = new Page(currentPage, 10, true);
         return baseMapper.selectPage(page, wrapper);
@@ -103,8 +106,8 @@ public class LessonServiceImpl extends ServiceImpl<LessonMapper, Lesson> impleme
     @Override
     public int lessonCheck(Lesson lesson) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("studentName",lesson.getStudentname());
-        wrapper.eq("teacherName",lesson.getTeachername());
+        wrapper.eq("studentName",lesson.getCourseName());
+        wrapper.eq("teacherName",lesson.getCourseName());
         wrapper.eq("date",lesson.getDate());
         return baseMapper.update(lesson,wrapper);
     }
