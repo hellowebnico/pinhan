@@ -1,9 +1,13 @@
 package com.pinhan.edu.src.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.Query;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.pinhan.edu.src.mapper.LessonMapper;
 import com.pinhan.edu.src.pojo.Lesson;
+import com.pinhan.edu.src.pojo.Staff;
 import com.pinhan.edu.src.service.ILessonService;
 import com.pinhan.edu.src.util.DateFormat;
 import org.springframework.stereotype.Service;
@@ -70,6 +74,38 @@ public class LessonServiceImpl extends ServiceImpl<LessonMapper, Lesson> impleme
         wrapper.eq("studentName",lesson.getStudentName());
         wrapper.eq("teacherName",lesson.getTeacherName());
         wrapper.eq("classTeacher",lesson.getClassTeacher());
+        return baseMapper.update(lesson,wrapper);
+    }
+
+    @Override
+    public IPage<Lesson> getPage(Integer currentPage, Lesson lesson, Date startTime, Date endTime) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.between("date",startTime,endTime);
+        if(lesson.getStudentname()!= null && !lesson.getStudentname().equals("")){
+            wrapper.eq("studentName",lesson.getStudentname());
+        }
+        if(lesson.getTeachername()!= null && !lesson.getTeachername().equals("")){
+            wrapper.eq("teacherName",lesson.getTeachername());
+        }
+        if(lesson.getGrade()!= null && !lesson.getGrade().equals("")){
+            wrapper.eq("grade",lesson.getGrade());
+        }
+        if(lesson.getCoursetype()!= null && !lesson.getCoursetype().equals("")){
+            wrapper.eq("courseType",lesson.getCoursetype());
+        }
+        if(lesson.getCoursename()!= null && !lesson.getCoursename().equals("")){
+            wrapper.eq("courseName",lesson.getCoursename());
+        }
+        Page<Lesson> page = new Page(currentPage, 10, true);
+        return baseMapper.selectPage(page, wrapper);
+    }
+
+    @Override
+    public int lessonCheck(Lesson lesson) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("studentName",lesson.getStudentname());
+        wrapper.eq("teacherName",lesson.getTeachername());
+        wrapper.eq("date",lesson.getDate());
         return baseMapper.update(lesson,wrapper);
     }
 }
