@@ -1,6 +1,5 @@
 package com.pinhan.edu.src.service.impl;
 
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -27,23 +26,28 @@ public class LessonServiceImpl extends ServiceImpl<LessonMapper, Lesson> impleme
 
     @Override
     public int addLesson(Lesson lesson) {
-        Lesson l = new Lesson();
-        l.setDate(lesson.getDate());
-        l.setWeek(lesson.getWeek());
-        l.setCourseName(lesson.getCourseName());
-        l.setCourseType(lesson.getCourseType());
-        l.setStart(lesson.getStart());
-        l.setEnd(lesson.getEnd());
-        l.setGrade(lesson.getGrade());
-        l.setClassTeacher(lesson.getClassTeacher());
-        l.setProjectid(lesson.getProjectid());
-        l.setDuration(lesson.getDuration());
-        l.setStudentName(lesson.getStudentName());
-        l.setTeacherName(lesson.getTeacherName());
-        l.setWorkId(lesson.getWorkId());
-        l.setStudentCheck(0);
-        l.setTeacherCheck(0);
-        return baseMapper.insert(l);
+        String name = lesson.getStudentName();
+        String []names = name.split(",");
+        for (String s : names) {
+            Lesson l = new Lesson();
+            l.setDate(lesson.getDate());
+            l.setWeek(lesson.getWeek());
+            l.setCourseName(lesson.getCourseName());
+            l.setCourseType(lesson.getCourseType());
+            l.setStart(lesson.getStart());
+            l.setEnd(lesson.getEnd());
+            l.setGrade(lesson.getGrade());
+            l.setClassTeacher(lesson.getClassTeacher());
+            l.setProjectid(lesson.getProjectid());
+            l.setDuration(lesson.getDuration());
+            l.setStudentName(s);
+            l.setTeacherName(lesson.getTeacherName());
+            l.setWorkId(lesson.getWorkId());
+            l.setStudentCheck(0);
+            l.setTeacherCheck(0);
+        }
+
+        return names.length;
     }
 
 

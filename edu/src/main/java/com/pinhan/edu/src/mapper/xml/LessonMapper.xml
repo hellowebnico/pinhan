@@ -14,7 +14,6 @@
         <result column="start" property="start" />
         <result column="end" property="end" />
         <result column="week" property="week" />
-        <result column="teacher_edu" property="teacherEdu" />
         <result column="student_check" property="studentCheck" />
         <result column="classTeacher" property="classTeacher" />
         <result column="teacher_check" property="teacherCheck" />
