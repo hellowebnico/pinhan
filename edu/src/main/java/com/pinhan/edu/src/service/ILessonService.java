@@ -40,4 +40,8 @@ public interface ILessonService extends IService<Lesson> {
      * 考勤功能
      */
     int lessonCheck(Lesson lesson);
+    /**
+     * 查询课表
+     */
+    IPage<Lesson> getPage(Integer currentPage,String studentName,String teacherName,String grade,String courseType,String courseName,Date startTime,Date endTime);
 }
